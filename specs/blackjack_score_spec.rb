@@ -8,7 +8,7 @@ require_relative '../lib/blackjack_score'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-describe 'Blackjac Score' do
+describe 'Blackjack Score' do
   it 'can calculate the score for a pair of number cards' do
 
     # Arrange
@@ -17,11 +17,23 @@ describe 'Blackjac Score' do
     # Act
     score = blackjack_score(hand)
 
-    # Assert <-  You do this part!
+    # Assert
+    expect(score).must_equal 7
 
   end
 
   it 'facecards have values calculated correctly' do
+  royalty = ["Jack", "Queen", "King"]
+  
+    royalty.each do |face_card|
+    # Arrange
+    hand = [face_card, "4"]    
+
+    # Act
+    score = blackjack_score(hand)    
+
+    # Assert
+    expect(score).must_equal 14
 
   end
 
